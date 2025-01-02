@@ -41,7 +41,7 @@ size_t loadCommands(const char * commandsPath, Command ** commands_csv){
 		saveCommand(&rowsTemp[size], exe_path, command_name);
 		// Contamos los comandos
 		if(++size == AVG_SIZE){
-
+			// Aca el caso de memoria dinamica
 		}
 	}
 	// Fin
@@ -62,9 +62,14 @@ void rowToCommand(Command ** commands_csv, char *** rows, size_t size){
 	(*commands_csv) = (Command *) malloc(size * sizeof(Command *));
 	// Una iteración
 	for(int i = 0; i < size; i++){
+		// Asignamos
 		(*commands_csv)[i].command_name = rows[i][COMMAND_NAME];
 		(*commands_csv)[i].exe_path = rows[i][EXE_PATH];
+		// Liberamos
+		free(rows[i]);
 	}
+	// Fin
+	free(rows);
 }
 
 int validateCommand(const char * command, const Command * commands_csv){
