@@ -8,7 +8,7 @@
 
 /*
  * Lectura de una archivo, para generar una cadena de tamaño indefinido
- * @param FILE* fp: Puntero al archivo por leer
+ * @param FILE * fp: Puntero al archivo por leer
  */
 char * readInput(FILE * fp){
     // Variables para la lectura (Memoria dinamica)
@@ -23,7 +23,7 @@ char * readInput(FILE * fp){
         char * tempInput = realloc(input, inputLen + buffLen + 1);
         if(tempInput == NULL){
             free(input);
-            printf("Fatal error: MyShell could not read the input string\n");
+            printf("Fatal error: Could not read the input string\n");
             return NULL;
         }
         input = tempInput;
@@ -42,12 +42,17 @@ char * readInput(FILE * fp){
     return input;
 }
 
-void updateCommands(char * exePath, char * commandsPath){
+/*
+ * Transforma el input en las entradas clasicas de argc y argv.
+ * @param const char * input: La entrada
+ * @param int * argc: La cantidad de palabras.
+ * @param char *** argv: Arreglo de palabras para ser creado
+ */
+void formatInput(const char * input, int * argc, char *** argv){
 
 }
 
-char ** loadCommands(const char * path){
-	char ** commands = NULL;
-
-	return commands;
+int validateCommand(const char * input, const char ** comands){
+	int idx = -1;
+	return idx;
 }
