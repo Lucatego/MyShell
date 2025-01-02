@@ -51,8 +51,3 @@ char * readInput(FILE * fp){
 void formatInput(const char * input, int * argc, char *** argv){
 
 }
-
-int validateCommand(const char * input, const char ** comands){
-	int idx = -1;
-	return idx;
-}
